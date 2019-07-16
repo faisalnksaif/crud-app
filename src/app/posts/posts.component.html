@@ -1,3 +1,23 @@
-<p>
+<!-- <p>
   posts works!
-</p>
+</p> -->
+<div class="container">
+  <div class="row">
+    <input type="text"
+           [(ngModel)]="userInput.name"
+           (keyup.enter)="createPost()" />
+    <button (click)="updatePostToDB()"
+            *ngIf="userInput.id">UPDATE</button>
+    <ul *ngFor="let data of posts">
+      <li>
+        <span (click)="goToPost(data)">
+          Name: {{data.name}}
+        </span>
+        <button class="btn btn-primary"
+                (click)="updatePost(data)">UPDATE</button>
+        <button class="btn btn-primary"
+                (click)="deletePost(data)">DELETE</button>
+      </li>
+    </ul>
+  </div>
+</div>
